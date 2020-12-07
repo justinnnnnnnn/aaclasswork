@@ -212,3 +212,4 @@ if __FILE__ == $PROGRAM_NAME
 
   TicTacToe.new(hp, cp).run
 end
+
