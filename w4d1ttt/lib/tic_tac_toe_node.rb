@@ -7,18 +7,22 @@ class TicTacToeNode
     @next_mover_mark = next_mover_mark
     @prev_move_pos = prev_move_pos
     @next_player = nil
-      if next_mover_mark == :x
-        next_player = :o 
+      if @next_mover_mark == :x
+        @next_player = :o 
       else
-        next_player = :x
+        @next_player = :x
       end
   end
 
   def losing_node?(evaluator)
-    return true if board.over? && !board.winner
+    return true if board.over? && board.winner == @next_player
+    # check are all posible next moves losses for us
+    # can the oppent corner us
+    # if neither of the above put in stack of possible moves
   end
 
   def winning_node?(evaluator)
+    #check first
   end
 
   # This method generates an array of all moves that can be made after
