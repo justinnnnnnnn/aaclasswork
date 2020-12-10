@@ -30,7 +30,13 @@ describe "my_transpose" do
   ]}
   
   it  "transposes a matrix" do
-    expect(my_tranpose(matrix)).to eq([[0, 3, 6],[1, 4, 7],[2, 5, 8]])
+    expect(my_transpose(matrix)).to eq([[0, 3, 6],[1, 4, 7],[2, 5, 8]])
+  end
+end
 
+describe "stock_picker" do
+  let(:days){[8, 2, 4, 5, 6, 7, 3, 1]}
+  it "picks the lowest num & highest num respectively in sequence" do
+    expect(stock_picker(days)).to eq([1, 5])
   end
 end
