@@ -1,16 +1,26 @@
 require "first_tdd"
 
 
-describe "uniq" do 
+describe "my_uniq" do 
   let(:array) {[1, 2, 2, 2, 3, 4]}
-  let(:output_arr) {uniq (array.dup)}
-  it "remove duplicates" do
-    array.each do |el| 
-      expect (output_arr.count(item)).to eq(1)
-    end
+  let(:output_arr) {my_uniq(array.dup)}
 
+  it "remove duplicates" do
+    expect(output_arr.count(el)).to eq(1)
+    array.each do |el| 
+    end
+    
   end
 end
 
+describe "two_sum" do
+  let(:array){[-1, 1, 4, 5, -3, 1]}
+  let(:pairs){two_sum(array)}
 
-#to remove, iterate over eles. Check ele, if it includes it, dont do it. only shovel once.
+  it "finds all pairs and positions where eles sum is zero" do
+    expect(pairs.index.to eq([-1, 0])
+  end
+end
+
+#to remove, iterate over eles. Check ele, if it includes it, 
+#dont do it. only shovel once.
