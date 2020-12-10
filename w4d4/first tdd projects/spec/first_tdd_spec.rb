@@ -6,8 +6,8 @@ describe "my_uniq" do
   let(:output_arr) {my_uniq(array.dup)}
 
   it "remove duplicates" do
-    expect(output_arr.count(el)).to eq(1)
     array.each do |el| 
+      expect(output_arr.count(el)).to eq(1)
     end
     
   end
@@ -18,9 +18,19 @@ describe "two_sum" do
   let(:pairs){two_sum(array)}
 
   it "finds all pairs and positions where eles sum is zero" do
-    expect(pairs.index.to eq([-1, 0])
+    expect(pairs).to eq([[0, 1],[0, 5]])
   end
 end
 
-#to remove, iterate over eles. Check ele, if it includes it, 
-#dont do it. only shovel once.
+describe "my_transpose" do
+  let (:matrix) {[
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8]
+  ]}
+  
+  it  "transposes a matrix" do
+    expect(my_tranpose(matrix)).to eq([[0, 3, 6],[1, 4, 7],[2, 5, 8]])
+
+  end
+end
