@@ -1,4 +1,4 @@
-require "first_tdd"
+require "00_first_tdd"
 
 
 describe "my_uniq" do 
@@ -40,3 +40,4 @@ describe "stock_picker" do
     expect(stock_picker(days)).to eq([1, 5])
   end
 end
+
