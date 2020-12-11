@@ -4,18 +4,28 @@ require "01_hanoi"
 
 
 describe TowersOfHanoi do
-  let(:stacks) {[ [4, 3, 2, 1], [], [] ]}
+
+  
   subject(:game) {TowersOfHanoi.new}
+
   describe "#initialize" do
-
     it "it should set starting game stack" do
-      expect(stacks).to eq([ [4, 3, 2, 1], [], [] ])
+      expect(game.stacks).to eq([ [4, 3, 2, 1], [], [] ])
+    end
+  end
+
+  describe "#win?" do
+    context "game over checker" do 
+    it "should return win message if true / continue game if false" do
+      
+    end
+
+    it "should return number of rounds" do
+      
     end
 
     end
-
-
-end
+  end
 
 
 
