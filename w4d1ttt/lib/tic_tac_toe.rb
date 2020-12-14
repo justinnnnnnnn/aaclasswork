@@ -213,3 +213,5 @@ if __FILE__ == $PROGRAM_NAME
   TicTacToe.new(hp, cp).run
 end
 
+t = TicTacToe.new(HumanPlayer.new("A"), HumanPlayer.new("J"))
+t.run
