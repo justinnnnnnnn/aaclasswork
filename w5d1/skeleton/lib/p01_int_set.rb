@@ -10,16 +10,19 @@ class MaxIntSet
   end
 
   def insert(num)
-    raise "out of range" if num > @store.length
-    if @store.include?(num) == false
-      @store << num
-    end
+    raise "out of range" if num > @store.length - 1 || num < 0
+    
   end
 
   def remove(num)
   end
 
   def include?(num)
+    if @store[num] == true
+      return true
+    else
+      return false
+    end
   end
 
   private
