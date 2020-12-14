@@ -1,3 +1,5 @@
+require "byebug"
+
 class MaxIntSet
   
   attr_reader :store #, :max
@@ -38,12 +40,18 @@ end
 
 
 class IntSet
+  attr_accessor :store
+  
   def initialize(num_buckets = 20)
     @store = Array.new(num_buckets) { Array.new }
   end
 
   def insert(num)
-    self[num]
+    # debugger
+    @store[num] << num
+    
+
+    
   end
 
   def remove(num)
@@ -62,8 +70,10 @@ class IntSet
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    # debugger
     bucket,inside = num % num_buckets, num
     @store[bucket][inside] 
+    # s = "s"
   end
 
   def num_buckets
