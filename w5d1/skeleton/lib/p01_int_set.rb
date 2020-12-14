@@ -10,11 +10,13 @@ class MaxIntSet
   end
 
   def insert(num)
-    raise "out of range" if num > @store.length - 1 || num < 0
+    raise "Out of bounds" if num > @store.length - 1 || num < 0
+    @store[num] = true
     
   end
 
   def remove(num)
+    @store[num] = false
   end
 
   def include?(num)
@@ -47,6 +49,16 @@ class IntSet
   end
 
   def include?(num)
+    #save @store[idx] as a variable, do @store[idx].each, compare eles to num
+    
+    
+    # idx = num % @store.length
+    # if @store[idx] == num
+    #   true
+    # else
+    #   false
+    # end
+    
   end
 
   private
