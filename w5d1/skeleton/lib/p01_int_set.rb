@@ -43,28 +43,27 @@ class IntSet
   end
 
   def insert(num)
+    self[num]
   end
 
   def remove(num)
   end
 
   def include?(num)
-    #save @store[idx] as a variable, do @store[idx].each, compare eles to num
-    
-    
-    # idx = num % @store.length
-    # if @store[idx] == num
-    #   true
-    # else
-    #   false
-    # end
-    
+    idx = num % @store.length
+    num_bucket = @store[idx]
+    num_bucket.each do |ele|
+     return true if ele == num
+    end
+    false
   end
 
   private
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    bucket,inside = num % num_buckets, num
+    @store[bucket][inside] 
   end
 
   def num_buckets
