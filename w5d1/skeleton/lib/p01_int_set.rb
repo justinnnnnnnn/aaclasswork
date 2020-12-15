@@ -48,13 +48,14 @@ class IntSet
 
   def insert(num)
     # debugger
-    @store[num] << num
+      self[num] << num
     
 
     
   end
 
   def remove(num)
+    self[num].delete_at(self[num][num])
   end
 
   def include?(num)
@@ -71,9 +72,10 @@ class IntSet
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
     # debugger
-    bucket,inside = num % num_buckets, num
-    @store[bucket][inside] 
+  
     # s = "s"
+    bucket = num % num_buckets
+    @store[bucket]
   end
 
   def num_buckets
