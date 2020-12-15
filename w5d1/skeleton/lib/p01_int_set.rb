@@ -6,9 +6,6 @@ class MaxIntSet
 
   def initialize(max)
     @store = Array.new(max, false)
-    # each index of @still will correspond to an item with a value true or false
-    # @max = max
-
   end
 
   def insert(num)
@@ -55,7 +52,7 @@ class IntSet
   end
 
   def remove(num)
-    self[num].delete_at(self[num][num])
+      self[num].delete_at(self[num].index(num))
   end
 
   def include?(num)
@@ -70,10 +67,6 @@ class IntSet
   private
 
   def [](num)
-    # optional but useful; return the bucket corresponding to `num`
-    # debugger
-  
-    # s = "s"
     bucket = num % num_buckets
     @store[bucket]
   end
@@ -92,18 +85,22 @@ class ResizingIntSet
   end
 
   def insert(num)
+    self[num] << num
   end
 
   def remove(num)
   end
 
   def include?(num)
+    self[num].include?(num)
   end
 
   private
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    bucket = num % num_buckets
+    @store[bucket]
   end
 
   def num_buckets
