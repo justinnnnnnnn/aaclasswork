@@ -55,19 +55,25 @@ def large_neighbors
   # neighbors (in the same continent). Give the countries and continents.
   execute(<<-SQL)
     SELECT 
-      name
+      name, continent
     FROM
       countries
     WHERE
-      population >= (
+      population / 3.0 >= (
         SELECT
-        3*population as big_population
-        LIMIT 1
+          MAX(population)
         FROM
-          countries as neighbors
+          countries as temp_neighbor
         WHERE
-          neighbors.continent = countries.continent
-      )
-
+          population < (
+            SELECT
+              MAX(population)
+            FROM
+              countries as neighbors
+            WHERE
+              neighbors.continent = countries.continent
+              )
+        AND temp_neighbor.continent = countries.continent
+              );
   SQL
 end
