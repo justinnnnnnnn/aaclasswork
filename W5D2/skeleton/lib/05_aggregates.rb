@@ -23,7 +23,7 @@ def continents
   # List all the continents - just once each.
   execute(<<-SQL)
     SELECT 
-      DISTINCT continent
+      continent
     FROM
       countries
   SQL
@@ -82,11 +82,27 @@ def populous_country_counts
   # For each continent show the continent and number of countries with
   # populations of at least 10 million.
   execute(<<-SQL)
+    SELECT
+      continent, COUNT(name)
+    FROM
+      countries
+    GROUP BY 
+      continent
+    WHERE
+      population > 10000000
   SQL
 end
 
 def populous_continents
   # List the continents that have a total population of at least 100 million.
   execute(<<-SQL)
+    SELECT
+      continent -- total population
+    FROM
+      countries
+    GROUP BY 
+      continent
+    HAVING
+      SUM(population) > '1e8'::NUMERIC::BIGINT -- 64 bit integer equaling 100mil
   SQL
 end
