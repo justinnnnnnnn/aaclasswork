@@ -70,11 +70,11 @@ def country_counts
   # For each continent show the continent and number of countries.
   execute(<<-SQL)
     SELECT
-          MAX(area)
-        FROM
-          countries AS biggest_countries
-        WHERE 
-          biggest_countries.continent = countries.continent
+      DISTINCT continent, COUNT(name)
+    FROM
+      countries
+    GROUP BY 
+      continent
   SQL
 end
 
