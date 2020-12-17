@@ -88,7 +88,7 @@ def populous_country_counts
       countries
     GROUP BY 
       continent
-    WHERE
+    HAVING
       population > 10000000
   SQL
 end
